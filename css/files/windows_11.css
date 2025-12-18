@@ -9,28 +9,22 @@ div.wrapper{
     margin: 10px auto 15px;
     gap:20px;
 }
+/*colors will go here*/
 div.left{
-    width: 100px;
-    margin-left: 20px;
-    text-align: center;
     background-color: #333031;
-    /*padding-left: 30px;*/
-    padding-bottom: 450px;
-    border-radius: 15px;
 }
-div.item{
-    display: inline-block;
-    margin: 10px;
-}
-div.item img{
-    width: 50px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-div.item p{
-    margin: 10px;
-    font-size: 15px;
-    text-decoration: underline;
+div.item p,
+.files p{
     color:#b9b7b7;
+}
+/*hovering and also clicked effects*/
+div.clicked{
+    background-color: #3e3b3d;
+    border-radius: 10px;
+}
+div.notClicked:hover{
+    background-color: #3e3b3d;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px 10px 10px;
 }

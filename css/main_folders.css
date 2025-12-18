@@ -3,3 +3,47 @@ body{
     margin: 0;
     overflow: hidden;
 }
+/*right side*/
+div.right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+.files{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+}
+.files img{
+    width: 100%;
+    max-width: 150px;
+}
+/*left side*/
+div.left{
+    width: 100px;
+    margin-left: 20px;
+    text-align: center;
+    /*padding-left: 30px;*/
+    padding-bottom: 360px;
+    padding-right: 10px;
+    border-radius: 15px;
+}
+div.item{
+    display: inline-block;
+    margin: 10px;
+}
+div.item img{
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+div.item p{
+    margin: 10px;
+    font-size: 15px;
+    text-decoration: underline;
+}
