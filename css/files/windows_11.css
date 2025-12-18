@@ -1,3 +1,36 @@
 body{
-    background-color: #312f30;
+    background-color: #373738;
+}
+/*algiening items*/
+div.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px auto 15px;
+    gap:20px;
+}
+div.left{
+    width: 100px;
+    margin-left: 20px;
+    text-align: center;
+    background-color: #333031;
+    /*padding-left: 30px;*/
+    padding-bottom: 450px;
+    border-radius: 15px;
+}
+div.item{
+    display: inline-block;
+    margin: 10px;
+}
+div.item img{
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+div.item p{
+    margin: 10px;
+    font-size: 15px;
+    text-decoration: underline;
+    color:#b9b7b7;
 }
