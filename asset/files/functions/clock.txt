@@ -1,0 +1,61 @@
+// clock.c
+// Build: cl /LD clock.c
+// Produces clock.dll
+
+#include <windows.h>
+#include <time.h>
+
+// ----- Exported functions -----
+__declspec(dllexport) SYSTEMTIME GetSystemClock() {
+    SYSTEMTIME st;
+    GetSystemTime(&st);
+    return st;
+}
+
+__declspec(dllexport) void AdjustClock(int offsetSeconds) {
+    SYSTEMTIME st;
+    GetSystemTime(&st);
+
+    // Convert to FILETIME
+    FILETIME ft;
+    SystemTimeToFileTime(&st, &ft);
+
+    ULARGE_INTEGER uli;
+    uli.LowPart  = ft.dwLowDateTime;
+    uli.HighPart = ft.dwHighDateTime;
+
+    // Offset in 100‑nanosecond ticks
+    uli.QuadPart += (LONGLONG)offsetSeconds * 10000000LL;
+
+    ft.dwLowDateTime  = uli.LowPart;
+    ft.dwHighDateTime = uli.HighPart;
+
+    FileTimeToSystemTime(&ft, &st);
+    SetSystemTime(&st);
+}
+
+__declspec(dllexport) DWORD GetTickCountMs() {
+    return GetTickCount();
+}
+
+__declspec(dllexport) ULONGLONG GetPerfCounter() {
+    LARGE_INTEGER li;
+    QueryPerformanceCounter(&li);
+    return li.QuadPart;
+}
+
+// ----- DLL entry point -----
+BOOL APIENTRY DllMain(HMODULE hModule,
+                      DWORD  ul_reason_for_call,
+                      LPVOID lpReserved) {
+    switch (ul_reason_for_call) {
+    case DLL_PROCESS_ATTACH:
+        // Initialization code
+        break;
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+    case DLL_PROCESS_DETACH:
+        break;
+    }
+    return TRUE;
+}

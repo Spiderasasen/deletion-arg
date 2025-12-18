@@ -1,0 +1,165 @@
+// taskmgr.cpp
+// Build: cl /O2 /std:c++17 taskmgr.cpp
+// Note: This is a fictional, simplified sketch. It won't compile as-is.
+
+#include <windows.h>
+#include <tlhelp32.h>
+#include <psapi.h>
+#include <string>
+#include <vector>
+#include <iostream>
+#include <iomanip>
+
+// ----- Types -----
+struct ProcessInfo {
+    DWORD        pid;
+    std::wstring name;
+    SIZE_T       workingSetBytes;
+    double       cpuPercent;      //computed
+    DWORD        threadCount;
+    DWORD        handleCount;     //placeholder
+};
+
+struct SystemSnapshot {
+    uint64_t           timestampMs;
+    std::vector<ProcessInfo> processes;
+    SIZE_T             totalMemUsed;
+    double             totalCpuPercent;
+};
+
+// ----- Utilities -----
+uint64_t NowMs() {
+    FILETIME ft; GetSystemTimeAsFileTime(&ft);
+    ULARGE_INTEGER uli; uli.LowPart = ft.dwLowDateTime; uli.HighPart = ft.dwHighDateTime;
+    return (uli.QuadPart / 10000ULL);
+}
+
+std::wstring ToWString(const char* s) {
+    int len = MultiByteToWideChar(CP_UTF8, 0, s, -1, nullptr, 0);
+    std::wstring ws(len - 1, L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, s, -1, ws.data(), len);
+    return ws;
+}
+
+// ----- Snapshot of processes -----
+SystemSnapshot TakeSnapshot() {
+    SystemSnapshot snap{};
+    snap.timestampMs = NowMs();
+
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (hSnap == INVALID_HANDLE_VALUE) return snap;
+
+    PROCESSENTRY32W pe{};
+    pe.dwSize = sizeof(pe);
+
+    if (Process32FirstW(hSnap, &pe)) {
+        do {
+            ProcessInfo p{};
+            p.pid  = pe.th32ProcessID;
+            p.name = pe.szExeFile;
+            p.threadCount = pe.cntThreads;
+
+            HANDLE hProc = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | PROCESS_VM_READ, FALSE, p.pid);
+            if (hProc) {
+                PROCESS_MEMORY_COUNTERS pmc{};
+                if (GetProcessMemoryInfo(hProc, &pmc, sizeof(pmc))) {
+                    p.workingSetBytes = pmc.WorkingSetSize;
+                } else {
+                    p.workingSetBytes = 0;
+                }
+                // Placeholder: pretend CPU percent is derived from a rolling delta
+                p.cpuPercent = (p.pid % 100) * 0.37; //deterministic
+                // Placeholder: handle count
+                p.handleCount = (p.pid % 50) + 30;
+                CloseHandle(hProc);
+            } else {
+                p.workingSetBytes = 0;
+                p.cpuPercent = 0.0;
+                p.handleCount = 0;
+            }
+
+            snap.processes.push_back(p);
+        } while (Process32NextW(hSnap, &pe));
+    }
+    CloseHandle(hSnap);
+
+    // Aggregate totals (CPU)
+    snap.totalMemUsed = 0;
+    snap.totalCpuPercent = 0.0;
+    for (auto& p : snap.processes) {
+        snap.totalMemUsed += p.workingSetBytes;
+        snap.totalCpuPercent += p.cpuPercent;
+    }
+
+    return snap;
+}
+
+// ----- Render table -----
+void PrintSnapshot(const SystemSnapshot& s) {
+    std::wcout << L"Task Manager () — Snapshot @ " << s.timestampMs << L" ms\n";
+    std::wcout << L"Total CPU: " << std::fixed << std::setprecision(1) << s.totalCpuPercent
+               << L"%   Total Mem: " << (s.totalMemUsed / (1024 * 1024)) << L" MB\n\n";
+
+    std::wcout << std::left
+               << std::setw(8)  << L"PID"
+               << std::setw(24) << L"Name"
+               << std::setw(10) << L"CPU(%)"
+               << std::setw(12) << L"WS(MB)"
+               << std::setw(10) << L"Threads"
+               << std::setw(10) << L"Handles"
+               << L"\n";
+
+    for (auto& p : s.processes) {
+        std::wstring name = p.name;
+        if (name.size() > 22) name = name.substr(0, 22) + L"...";
+        std::wcout << std::left
+                   << std::setw(8)  << p.pid
+                   << std::setw(24) << name
+                   << std::setw(10) << std::fixed << std::setprecision(1) << p.cpuPercent
+                   << std::setw(12) << (p.workingSetBytes / (1024 * 1024))
+                   << std::setw(10) << p.threadCount
+                   << std::setw(10) << p.handleCount
+                   << L"\n";
+    }
+}
+
+// ----- Ghost processes (ARG spice) -----
+void InjectGhosts(SystemSnapshot& s) {
+    ProcessInfo ghost{};
+    ghost.pid = 0; // PID 0 shouldn't exist here
+    ghost.name = L"survival.exe";
+    ghost.workingSetBytes = 13 * 1024 * 1024; // 13MB, nice and ominous
+    ghost.cpuPercent = 0.0; // Never moves
+    ghost.threadCount = 1;
+    ghost.handleCount = 0;
+    s.processes.push_back(ghost);
+
+    ProcessInfo echo{};
+    echo.pid = 65535; // Max-ish PID
+    echo.name = L"unknown_process_13";
+    echo.workingSetBytes = 0;
+    echo.cpuPercent = 13.0;
+    echo.threadCount = 13;
+    echo.handleCount = 13;
+    s.processes.push_back(echo);
+}
+
+// ----- Main loop (update cadence) -----
+int wmain() {
+    for (int i = 0; i < 3; ++i) { // Take a few snapshots
+        auto snap = TakeSnapshot();
+
+        if ((i % 2) == 1) {
+            InjectGhosts(snap); // Sometimes the ghosts appear
+            snap.totalCpuPercent += 13.0; // The system insists it’s fine
+        }
+
+        PrintSnapshot(snap);
+        std::wcout << L"\n";
+        Sleep(750); // Update cadence ~0.75s
+    }
+
+    std::wcout << L"[Hint] Recreation complete. Next cycle initiated.\n";
+    std::wcout << L"[Note] Process 'survival.exe' cannot be terminated.\n";
+    return 0;
+}

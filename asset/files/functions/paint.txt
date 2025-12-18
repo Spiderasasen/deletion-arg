@@ -1,0 +1,48 @@
+// paint.cpp
+// Build: cl /O2 /std:c++17 paint.cpp
+// Simplified graphics editor core
+
+#include <windows.h>
+#include <string>
+#include <vector>
+#include <iostream>
+
+// ----- Basic canvas -----
+struct Pixel {
+    BYTE r, g, b;
+};
+
+struct Canvas {
+    int width;
+    int height;
+    std::vector<Pixel> buffer;
+
+    Canvas(int w, int h) : width(w), height(h), buffer(w*h) {}
+
+    void Clear(Pixel color) {
+        for (auto& p : buffer) p = color;
+    }
+
+    void SetPixel(int x, int y, Pixel color) {
+        if (x < 0 || y < 0 || x >= width || y >= height) return;
+        buffer[y*width + x] = color;
+    }
+
+    Pixel GetPixel(int x, int y) const {
+        if (x < 0 || y < 0 || x >= width || y >= height) return {0,0,0};
+        return buffer[y*width + x];
+    }
+};
+
+// ----- Drawing primitives -----
+void DrawLine(Canvas& c, int x1, int y1, int x2, int y2, Pixel color) {
+    int dx = abs(x2 - x1), dy = abs(y2 - y1);
+    int sx = (x1 < x2) ? 1 : -1;
+    int sy = (y1 < y2) ? 1 : -1;
+    int err = dx - dy;
+
+    while (true) {
+        c.SetPixel(x1, y1, color);
+        if (x1 == x2 && y1 == y2) break;
+        int e2 = 2*err;
+        if (e2 > -dy) {

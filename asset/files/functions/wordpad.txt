@@ -1,0 +1,75 @@
+// wordpad.cpp
+// Build: cl /O2 /std:c++17 wordpad.cpp
+// Simplified rich text editor core
+
+#include <windows.h>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+// ----- Document buffer -----
+struct Paragraph {
+    std::wstring text;
+    bool bold;
+    bool italic;
+};
+
+struct Document {
+    std::vector<Paragraph> paragraphs;
+
+    void AddParagraph(const std::wstring& t, bool b=false, bool i=false) {
+        paragraphs.push_back({t, b, i});
+    }
+
+    void Save(const std::wstring& filename) {
+        std::wofstream out(filename);
+        for (auto& p : paragraphs) {
+            if (p.bold)   out << L"<b>";
+            if (p.italic) out << L"<i>";
+            out << p.text;
+            if (p.italic) out << L"</i>";
+            if (p.bold)   out << L"</b>";
+            out << L"\n";
+        }
+    }
+
+    void Print() {
+        for (auto& p : paragraphs) {
+            std::wcout << (p.bold ? L"[B]" : L"")
+                       << (p.italic ? L"[I]" : L"")
+                       << p.text
+                       << L"\n";
+        }
+    }
+};
+
+// ----- Main loop -----
+int wmain() {
+    std::wcout << L"WordPad Service — Build 10.0.22621\n";
+    std::wcout << L"Enter text lines. Commands: /bold, /italic, /save <file>, /exit\n\n";
+
+    Document doc;
+    std::wstring line;
+    bool bold = false, italic = false;
+
+    while (true) {
+        std::wcout << L"> ";
+        if (!std::getline(std::wcin, line)) break;
+        if (line == L"/exit") break;
+        if (line == L"/bold")   { bold = !bold; continue; }
+        if (line == L"/italic") { italic = !italic; continue; }
+        if (line.rfind(L"/save",0) == 0) {
+            std::wstring filename = line.substr(6);
+            doc.Save(filename);
+            std::wcout << L"Document saved to " << filename << L"\n";
+            continue;
+        }
+        doc.AddParagraph(line, bold, italic);
+    }
+
+    std::wcout << L"\nFinal Document:\n";
+    doc.Print();
+    std::wcout << L"Session terminated.\n";
+    return 0;
+}

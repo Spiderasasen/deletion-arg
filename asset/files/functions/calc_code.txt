@@ -1,0 +1,61 @@
+// calc.cpp
+// Build: cl /O2 /std:c++17 calc.cpp
+// Simplified calculator core
+
+#include <windows.h>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+#include <map>
+#include <functional>
+
+// ----- Core operations -----
+double Add(double a, double b) { return a + b; }
+double Sub(double a, double b) { return a - b; }
+double Mul(double a, double b) { return a * b; }
+double Div(double a, double b) { return (b != 0.0) ? a / b : 0.0; }
+
+// ----- Registry of functions -----
+std::map<std::wstring, std::function<double(double,double)>> ops = {
+    {L"add", Add},
+    {L"sub", Sub},
+    {L"mul", Mul},
+    {L"div", Div}
+};
+
+// ----- Parse input -----
+bool ParseCommand(const std::wstring& line, double& result) {
+    std::wstringstream ss(line);
+    std::wstring op; double a, b;
+    ss >> op >> a >> b;
+    if (ops.find(op) != ops.end()) {
+        result = ops[op](a, b);
+        return true;
+    }
+    return false;
+}
+
+// ----- Main loop -----
+int wmain() {
+    std::wcout << L"Calculator Service — Build 10.0.22621\n";
+    std::wcout << L"Enter commands: [add|sub|mul|div] <a> <b>\n";
+    std::wcout << L"Type 'exit' to quit.\n\n";
+
+    std::wstring line;
+    while (true) {
+        std::wcout << L"> ";
+        if (!std::getline(std::wcin, line)) break;
+        if (line == L"exit") break;
+
+        double result;
+        if (ParseCommand(line, result)) {
+            std::wcout << L"= " << std::fixed << std::setprecision(4) << result << L"\n";
+        } else {
+            std::wcout << L"Invalid command.\n";
+        }
+    }
+
+    std::wcout << L"Session terminated.\n";
+    return 0;
+}
