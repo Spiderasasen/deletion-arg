@@ -7,3 +7,15 @@ document.querySelectorAll(".files").forEach((file) =>{
         }
     });
 });
+//checking the local storage
+window.onload = function(){
+    const bin = document.getElementById("trash_can");
+    const deleted_files = JSON.parse(localStorage.getItem('deleted_files')) || [];
+
+    deleted_files.forEach(file_name => {
+        const trash_element = bin.querySelector(`[data-name="${file_name}"]`);
+        if (trash_element) {
+            trash_element.style.display = "block";
+        }
+    })
+}
