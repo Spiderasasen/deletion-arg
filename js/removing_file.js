@@ -1,5 +1,7 @@
 //function to remove files
 let deleted_files = []; //a remebering system
+//getting the current windows
+const windows = document.querySelectorAll("body")
 
 function remove(file_name){
     const alt =  confirm('Do you want to remove this file?');
@@ -8,6 +10,7 @@ function remove(file_name){
         console.log(file_name, 'deleted');
         deleted_files.push(file_name);
         moveTotrash(file_name); //moves to trash
+        triggerDowngrade();
     }
     else{
         console.log(file_name, 'saved');
