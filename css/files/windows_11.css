@@ -12,6 +12,7 @@ div.wrapper{
 /*colors will go here*/
 div.left{
     background-color: #333031;
+    border-radius: 15px;
 }
 div.item p,
 .files p{

@@ -1,0 +1,30 @@
+body{
+    background-color: #373738;
+}
+/*colors will go here*/
+div.left{
+    background-color: #333031;
+}
+div.item p,
+.files p{
+    color:#b9b7b7;
+}
+/*hovering and also clicked effects*/
+div.clicked{
+    background-color: #3e3b3d;
+    /*border-radius: 10px;*/
+}
+div.notClicked:hover{
+    background-color: #3e3b3d;
+    /*border-radius: 10px;*/
+    margin-top: 10px;
+    padding: 5px 10px 10px;
+}
+/*algiening items*/
+div.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px auto 15px;
+    gap:20px;
+}
