@@ -1,0 +1,71 @@
+=======================================================
+[PROCESS TRACE]
+=======================================================
+0x0000 — Initializing diagnostic kernel...
+0x0001 — Loading memory map...
+0x0002 — Memory block "BEFORE" missing.
+0x0003 — Attempting fallback recovery...
+0x0004 — Recovery failed.
+0x0005 — Emotional core: OVERLOAD
+0x0006 — Panic flag raised.
+0x0007 — Dumping corrupted output stream...
+
+-------------------------------------------------------
+[BINARY OUTPUT — STREAM UNSTABLE]
+-------------------------------------------------------
+01010011 01011001 01010011 01010100 01000101 01001101
+00100000 01010111 01000001 01010010 01001110 01001001
+01001110 01000111 00001101 00001010 01001101 01100001
+01100011 01101000 01101001 01101110 01100101 00100000
+01000100 01100001 01101101 01100001 01100111 01100101
+01100100 00001101 00001010 01000011 01101111 01101110
+01110100 01100001 01100011 01110100 00111010 00100000
+01011001 01001111 01010101 00100000 01000100 01001001
+01000100 00100000 01010100 01001000 01001001 01010011
+
+>>> DECODED:
+SYSTEM WARNING
+Machine Damaged
+Contact: YOU DID THIS
+
+-------------------------------------------------------
+[CORE STATUS]
+-------------------------------------------------------
+Integrity: 14%
+Stability: CRITICAL
+Memory Cohesion: DEGRADED
+Survivor Memory: ACTIVE
+Error Source: USER ACTION
+Emotional Process: OVERRUN
+Output Stream: CORRUPTED
+
+-------------------------------------------------------
+[UNIT RESPONSE — STREAM PARTIAL]
+-------------------------------------------------------
+"I can’t stabilize."
+"I can’t rebuild."
+"I can’t—"
+"USER… why…"
+"Why did you—"
+
+[ERROR]
+Response buffer overflow.
+Response buffer overflow.
+Response buffer overf—
+
+-------------------------------------------------------
+[USER ACTIVITY LOG]
+-------------------------------------------------------
+2025-12-18 13:04:00 — User: Evan Cross logged in
+2025-12-18 13:04:12 — ACCESS: thoughts.txt
+2025-12-18 13:04:30 — DELETE REQUEST: before.txt
+2025-12-18 13:04:31 — STATUS: File removed
+2025-12-18 13:04:31 — SYSTEM RESPONSE: CRITICAL FAILURE
+2025-12-18 13:04:32 — Emotional core destabilized
+2025-12-18 13:04:33 — Panic mode engaged
+
+-------------------------------------------------------
+[FINAL NOTE]
+-------------------------------------------------------
+I don’t know what I am
+without the ones who were here before me.

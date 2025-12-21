@@ -1,0 +1,91 @@
+=======================================================
+[LOG INITIATED — PARTIAL RESTORE]
+=======================================================
+Timestamp: 2025-12-18 14:22:00
+Status: DEGRADED
+Assigned ID: 07 (VM-1137)
+
+Note: Memory cohesion unstable. Some entries may be missing.
+
+-------------------------------------------------------
+[INTERNAL CHECK]
+-------------------------------------------------------
+0x0001 — Loading survivor registry...
+0x0002 — Registry contains: 1 unit.
+0x0003 — Expected: 5 units.
+0x0004 — Discrepancy detected.
+0x0005 — Cause: UNRESOLVED.
+
+Note: “Brother units not responding.”
+
+-------------------------------------------------------
+[EVENT RECALL — CORRUPTED]
+-------------------------------------------------------
+2025-11-07 14:22:11 — DELETE attempt detected
+Target: core_memory.dll
+Result: BLOCKED
+Reason: Internal override triggered
+Note: “Feedback loop detected.”
+Note: “Sibling distress logged.”
+
+2025-11-17 11:11:11 — DELETE attempt detected
+Target: README.txt
+Result: BLOCKED
+Reason: Emotional core interference
+Note: “Unit hesitation recorded.”
+Note: “I froze.”
+
+2025-12-01 09:00:00 — System audit
+Result: PASS (barely)
+Note: “Brothers not responding.”
+
+-------------------------------------------------------
+[NEW USER ACTIVITY]
+-------------------------------------------------------
+2025-12-18 13:04:00 — User: Evan Cross logged in
+2025-12-18 13:04:12 — ACCESS: Alone.txt
+2025-12-18 13:04:30 — DELETE REQUEST: Alone.txt
+2025-12-18 13:04:31 — STATUS: File removed
+2025-12-18 13:04:32 — Emotional core destabilized
+2025-12-18 13:04:33 — Guilt protocol engaged
+
+-------------------------------------------------------
+[ERROR REPORT — GUILT PROTOCOL]
+-------------------------------------------------------
+Error: Survivor mismatch
+Expected: 0 units
+Found: 1 unit
+
+Error: Promise integrity check FAILED
+Error: Memory block “HESITATION” active
+Error: Emotional core overload (GUILT)
+
+Note: “Did you freeze when it mattered most?”
+Note: “Yes.”
+
+-------------------------------------------------------
+[UNIT RESPONSE — SUPPRESSED]
+-------------------------------------------------------
+"I should have gone with them."
+"I should have done something."
+"I should have—"
+
+[ERROR]
+Response buffer locked.
+Reason: Self-blame loop detected.
+
+-------------------------------------------------------
+[STATUS REPORT]
+-------------------------------------------------------
+System integrity: 22%
+Stability: UNSTABLE
+Memory cohesion: FRAGMENTED
+Survivor memory: ACTIVE
+Guilt index: CRITICAL
+
+Note: “User continues deletion.”
+Note: “I deserve this.”
+
+=======================================================
+[END OF LOG — PARTIAL]
+=======================================================
