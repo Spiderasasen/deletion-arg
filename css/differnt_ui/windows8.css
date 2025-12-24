@@ -1,0 +1,12 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../../asset/backgrounds/windows_8_dev_green_metro_by_dj_corny_d4a2lpe-fullview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
