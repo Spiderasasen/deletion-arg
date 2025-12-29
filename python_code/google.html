@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google</title>
+    <link rel="stylesheet" href="../css/google_ciphers.css" type="text/css">
+</head>
+<body>
+    <div id="output"></div>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script>
+        async function runPython(){
+            console.log("Running Python");
+            //loading pyroid
+            let pyodide = await loadPyodide();
+
+            //getting the python code
+            const responsePy = await fetch("main.py");
+            const pythonCode = await responsePy.text();
+            console.log(pythonCode);
+
+            //printing the python code that uses the print statment
+            let outputBuffer = "";
+
+            //set stdout to capture print() output
+            await pyodide.setStdout({
+                batched: (data) => {
+                    outputBuffer += data + "\n";
+                }
+            });
+
+            //overrideing the input section
+            await pyodide.runPythonAsync(`
+            import sys
+            def js_input(prompt=None):
+                import js
+                return js.prompt(prompt or "Enter input:")
+            sys.modules['builtins'].input = js_input
+            `);
+
+            //running the code
+            const result = await pyodide.runPythonAsync(pythonCode);
+            console.log(result);
+
+            document.getElementById("output").textContent = outputBuffer;
+        }
+        runPython()
+    </script>
+</body>
+</html>
