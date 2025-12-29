@@ -1,0 +1,16 @@
+body{
+    background: #ececec;
+    font-famil: "Segoe UI", Tahoma, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+#output{
+    background: white;
+    border: 1px solid #c8c8c8;
+    padding: 20px;
+    width: 80%;
+    marging: 40px auto;
+    fon-size: 19px;
+    color: #222;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
