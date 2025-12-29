@@ -1,4 +1,18 @@
-
+body{
+    background-color: #f2f2f2;
+    color: black;
+}
+div.left{
+    background-color: lightgray;
+}
+div.clicked{
+    background-color: #9e9c9c;
+}
+div.notClicked:hover{
+    background-color: #9e9c9c;
+    margin-top: 10px;
+    padding: 5px 10px 10px;
+}
 /*algiening items*/
 div.wrapper{
     display: flex;
