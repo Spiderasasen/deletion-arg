@@ -1,0 +1,10 @@
+body{
+    background-image: url("../../asset/logos/vista/1lu31x1angtb1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
