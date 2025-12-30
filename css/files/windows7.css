@@ -3,7 +3,7 @@ body{
     color: black;
 }
 div.left{
-    background-color: lightgray;
+    background-color: #eaeaea;
 }
 div.clicked{
     background: linear-gradient(to bottom, #cce6ff 0%, #99ccff 100%);
