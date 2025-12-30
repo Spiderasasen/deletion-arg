@@ -11,4 +11,8 @@ function triggerDowngrade(){
         window.open("../../windows10.html?downgrade=windows8", "_blank", "height=1800 width=2600");
         window.close();
     }
+    if(currentSystem === "windows_8"){
+        window.open("../../windows8.html?downgrade=windows7", "_blank", "height=1800 width=2600");
+        window.close();
+    }
 }
