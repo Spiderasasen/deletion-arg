@@ -1,0 +1,40 @@
+div.left{
+    background-color: #7fa2f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    width: 150px;            /* or whatever width you want */
+    height: 100vh;           /* full height of viewport */
+    margin-left: 1px;
+
+}
+.clicked{
+    background-color: #7391d9;
+    padding: 10px 20px;
+    border: 2px solid #d8e0fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.notClicked:hover{
+    background-color: #7391d9;
+    padding: 10px 20px;
+    border: 2px solid #d8e0fa;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+div.item p{
+    text-decoration: none;
+    color: #0052a8;
+}
+
+/*algiening items*/
+div.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 5px auto 15px;
+    gap:0;
+}
