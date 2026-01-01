@@ -19,4 +19,8 @@ function triggerDowngrade(){
         window.open("../../windows7.html?downgrade=windows_vista", "_blank", "height=1800 width=2600");
         window.close();
     }
+    if(currentSystem === "windows_vista"){
+        window.open("../../windows_vista.html?downgrade=windows_xp", "_blank", "height=1800 width=2600");
+        window.close();
+    }
 }
