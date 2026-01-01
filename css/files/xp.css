@@ -1,13 +1,21 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #7fa2f3; /* match sidebar blue */
+}
 div.left{
     background-color: #7fa2f3;
+    width: 180px; /* XP-style fixed sidebar width */
+    height: calc(100vh - 10px); /* full height minus margin/padding */
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* vertical centering */
-    align-items: center;     /* horizontal centering */
-    width: 150px;            /* or whatever width you want */
-    height: 100vh;           /* full height of viewport */
-    margin-left: 1px;
-
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: inset -1px 0 2px #5f7fcf; /* subtle XP-style edge */
+    border-right: 2px solid #5f7fcf;
+    border-right: 2px solid #5f7fcf; /* or whatever color that line is */
 }
 .clicked{
     background-color: #7391d9;
@@ -25,16 +33,56 @@ div.left{
     margin-bottom: 10px;
     text-align: center;
 }
-div.item p{
-    text-decoration: none;
-    color: #0052a8;
+div.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+div.item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
+}
+
+div.item p {
+    font-family: Tahoma, sans-serif;
+    font-size: 12px;
+    color: #003399;
+    margin: 0;
+    text-align: center;
+}
+div.right {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 2px solid #d8d8d8;
+    box-shadow: inset 0 0 3px #ccc;
+
+}
+div.files {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    margin: 10px;
+    font-family: Tahoma, sans-serif;
+    font-size: 12px;
+    color: #000080;
+}
+div.files img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 5px;
 }
 
 /*algiening items*/
 div.wrapper{
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 5px auto 15px;
-    gap:0;
+    height: 100vh;
 }
