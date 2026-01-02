@@ -35,6 +35,11 @@ div.item p {
     font-size: 11px;
     text-align: center;
 }
+div.files img{
+    height: 40px;
+    width: 40px;
+    margin-top: 25px;
+}
 
 /*algiening items*/
 div.wrapper{
