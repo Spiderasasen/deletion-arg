@@ -1,3 +1,4 @@
+/*main body*/
 body {
     background-color: #c1c4c9;
     font-family: 'MS Sans Serif', sans-serif;
@@ -9,7 +10,7 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-
+/*container for all*/
 .program-manager {
     width: 300px;
     border: 2px solid #000;
@@ -17,15 +18,34 @@ body {
     box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #808080;
 }
 
+/*top header bar*/
 .title-bar {
     background-color: #000080;
     color: white;
+    display: flex;
+    align-items: center;
     padding: 4px 8px;
     font-weight: bold;
     font-size: 14px;
     border-bottom: 2px solid #000;
+    gap: 6px;
 }
-
+.min_button{  font-family: 'MS Sans Serif', sans-serif;
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    border: 2px solid #000;
+    background-color: #fcfcfc;
+    color: black;
+    box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #808080;
+    cursor: pointer;
+}
+.title-text {
+    flex-grow: 1;
+}
+/*selectioning the main system from file to help*/
 .selection {
     display: flex;
     justify-content: flex-start;
@@ -44,7 +64,7 @@ body {
     box-shadow: inset -1px -1px 0 #fff, inset 1px 1px 0 #808080;
     cursor: pointer;
 }
-
+/*accessing differnt programs via there respected button*/
 .program-group {
     display: flex;
     flex-direction: row;
