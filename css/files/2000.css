@@ -40,6 +40,9 @@ div.files img{
     width: 40px;
     margin-top: 25px;
 }
+div.files{
+    margin-left: 15px;
+}
 
 /*algiening items*/
 div.wrapper{
