@@ -23,4 +23,8 @@ function triggerDowngrade(){
         window.open("../../windows_vista.html?downgrade=windows_xp", "_blank", "height=1800 width=2600");
         window.close();
     }
+    if(currentSystem === "windows_xp"){
+        window.open("../../windows_xp.html?downgrade=windows_2000", "_blank", "height=1800 width=2600");
+        window.close();
+    }
 }
