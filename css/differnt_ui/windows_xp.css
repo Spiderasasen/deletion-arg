@@ -10,6 +10,7 @@ html, body{
     background-attachment: fixed;
     color: white;
     text-shadow: 1pt 1pt 1pt #000000;
+    overflow: hidden;
 }
 a{
     text-decoration: none;
