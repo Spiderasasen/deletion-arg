@@ -1,5 +1,18 @@
 # deletion-arg
-a simple arg that when anything gets deleted, it will get more and more cryptic
+You’re given access to a friend’s virtual machine.
+As you explore it, the system begins responding in ways it shouldn’t.
+
+
+# Summary
+A friend gives you access to his old virtual machine.
+The login works, but the system immediately knows you’re not him.
+At first, deleting files seems harmless — nothing reacts.
+Then the machine does.
+And as the system begins to break down, you realize it isn’t just malfunctioning.
+It’s hurting.
+
+
+# set up on the page(*Read Below*)
 
 # normal page
 It will look like a replica of looking windows desktop
@@ -21,11 +34,3 @@ When no files are visible, it will only show an empty screen
   1. The fade-in text will come
   2. asking the user if this was his thought
   3. Then, when the speech is done, the replica will turn off, and nothing. No matter what happens during the session will make the computer come back
-
-# another ending?
-This one will be visible if you did not delete the computer's files.
-  1. The computer will ask you after some time if you really are happy with not killing him
-  2. When it sees that nothing happens, he will be satisfied that nothing has happened
-     1. Possible pivot, if you delete a file at this stage, he will be betrayed, and the original story will play out
-  3. If the user still does not kill any file, the computer will be content and give you a free gift for allowing it to live
-     1. No files can be deleted now. 
