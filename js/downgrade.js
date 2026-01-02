@@ -31,4 +31,8 @@ function triggerDowngrade(){
         window.open("../../windows_2000.html?downgrade=windows_98", "_blank", "height=1800 width=2600");
         window.close();
     }
+    if(currentSystem === "windows_98"){
+        window.open("../../windows_98.html?downgrade=windows_95", "_blank", "height=1800 width=2600");
+        window.close();
+    }
 }
