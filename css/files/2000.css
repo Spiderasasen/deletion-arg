@@ -1,0 +1,47 @@
+/*cosmitics*/
+body {
+    background-color: #c0c0c0; /* NT gray */
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+div.left{
+    border: 6px solid #969696;
+    margin-left: 1px;
+    padding-right: 50px;
+    border-right: 15px solid #808080;
+}
+div.item{
+    border: 2px solid #969696;
+    margin-left: 30px;
+}
+.clicked{
+    background-color: #141f4c;
+    color: white;
+    /*border-color: #2a3b7a;*/
+}
+.notClicked:hover{
+    background-color: #141f4c;
+    color: white;
+    /*border-color: #2a3b7a;*/
+}
+div.item img {
+    width: 40px;
+    height: auto;
+}
+div.item p {
+    font-size: 11px;
+    text-align: center;
+}
+
+/*algiening items*/
+div.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 5px auto 15px;
+    gap:0;
+}
