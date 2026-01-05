@@ -3,6 +3,9 @@ body{
     background-color: black;
     color: #8f8f8f;
 }
+p{
+    font-family: 'Courier New', monospace;
+}
 h2{
     text-align: center;
     color: #8f8f8f;
@@ -25,15 +28,18 @@ div.under_header{
     gap: 4px;
 }
 input{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', monospace;
     color: #8f8f8f;
     border: none;
     height: 15px;
     background-color: black;
-    /*margin-top: 15px;*/
+    outline: none;   /* THIS removes the blue highlight */
+    caret-color: #8f8f8f; /* Makes the cursor match DOS text */
 }
-input:active{
-    background-color: black;
-    border: none;
+#output p {
+    font-family: 'Courier New', monospace;
     color: #8f8f8f;
+    white-space: pre;
+    margin: 0;
+    padding: 0;
 }
