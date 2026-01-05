@@ -1,0 +1,39 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    color: #8f8f8f;
+}
+h2{
+    text-align: center;
+    color: #8f8f8f;
+    font-stretch: condensed;
+}
+div.header_container{
+    margin: auto;
+    border: 2px dashed #8f8f8f;
+}
+div.under_header{
+    margin-top: 70px;
+}
+#push{
+    padding-left: 105px
+}
+/*text input area now*/
+.input_container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #8f8f8f;
+    border: none;
+    height: 15px;
+    background-color: black;
+    /*margin-top: 15px;*/
+}
+input:active{
+    background-color: black;
+    border: none;
+    color: #8f8f8f;
+}
