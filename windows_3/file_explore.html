@@ -6,10 +6,84 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/file_explore.css" type="text/css">
 </head>
-<body>
-
+<body data-name="windows_3">
+<div id="file-explorer" class="window hidden">
+    <div class="title-bar">
+        <span class="title">File Manger</span>
+        <div class="window-controls">
+            <button class="close-btn">X</button>
+        </div>
+    </div>
+    <div class="menu-mar">
+        <span>File</span>
+        <span>Edit</span>
+        <span>View</span>
+        <span>Help</span>
+    </div>
+    <div class="file-body">
+        <div class="sidebar">
+            <p>C:\</p>
+            <p>documents</p>
+            <p>System</p>
+        </div>
+        <div class="main-plain">
+            <div class="files" data-name="taskmgr.exe" onclick="opening_files('../../asset/files/functions/task_manger_code.txt')">
+                <img src="../asset/logos/windows_3/PROGM003.PNG" alt="exe logo">
+                <p>taskmgr.exe</p>
+            </div>
+            <div class="files" data-name="calc.exe" onclick="opening_files('../../asset/files/functions/calc_code.txt')">
+                <img src="../asset/logos/windows_3/PROGM003.PNG" alt="exe logo">
+                <p>calc.exe</p>
+            </div>
+            <div class="files" data-name="clock.dll" onclick="opening_files('../../asset/files/functions/clock.txt')">
+                <img src="../asset/logos/windows_3/PROGM027.PNG" alt="exe logo">
+                <p>clock.dll</p>
+            </div>
+            <div class="files" data-name="paint.exe" onclick="opening_files('../../asset/files/functions/paint.txt')">
+                <img src="../asset/logos/windows_3/PROGM003.PNG" alt="exe logo">
+                <p>paint.exe</p>
+            </div>
+            <div class="files" data-name="wordpad.exe" onclick="opening_files('../../asset/files/functions/wordpad.txt')">
+                <img src="../asset/logos/windows_3/PROGM003.PNG" alt="exe logo">
+                <p>wordpad.exe</p>
+            </div>
+            <div class="files" data-name="README.txt">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>README.txt</p>
+            </div>
+            <div class="files" data-name="NOTICE.txt">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>NOTICE.txt</p>
+            </div>
+            <div class="files" data-name="FAQ.txt">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>FAQ.txt</p>
+            </div>
+            <div class="files" data-name="thoughts.txt">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>thoughts.txt</p>
+            </div>
+            <div class="files" data-name="alone.txt">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>alone.txt</p>
+            </div>
+            <div class="files" data-name="before.txt" onclick="opening_files('../../asset/files/lore/Panic/first_delation.txt')">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>before.txt</p>
+            </div>
+            <div class="files" data-name="System_logs.txt">
+                <img src="../asset/logos/windows_3/NOTEP001.PNG" alt="text file">
+                <p>System_logs.txt</p>
+            </div>
+            <div class="files" data-name="core_memory.dll">
+                <img src="../asset/logos/windows_3/PROGM027.PNG" alt="ddl file">
+                <p>core_memory.dll</p>
+            </div>
+        </div>
+    </div>
+</div>
 <!--linking the local stroage to windows 3-->
-<script src="../js/opening_window.js"></script>
+<script src="js/opening_files.js"></script>
 <script src="../js/removing_file.js"></script>
 <script src="../js/downgrade.js"></script>
 </body>
