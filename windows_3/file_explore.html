@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="css/file_explore.css" type="text/css">
 </head>
 <body data-name="windows_3">
-<div id="file-explorer" class="window hidden">
+<div id="file-explorer" class="window">
     <div class="title-bar">
-        <span class="title">File Manger</span>
+        <span class="title">File Manager</span>
         <div class="window-controls">
             <button class="close-btn">X</button>
         </div>
@@ -23,8 +23,8 @@
     <div class="file-body">
         <div class="sidebar">
             <p>C:\</p>
-            <p>documents</p>
-            <p>System</p>
+            <p id="docs">Documents</p>
+            <p id="sys">System</p>
         </div>
         <div class="main-plain">
             <div class="files" data-name="taskmgr.exe" onclick="opening_files('../../asset/files/functions/task_manger_code.txt')">
@@ -86,5 +86,19 @@
 <script src="js/opening_files.js"></script>
 <script src="../js/removing_file.js"></script>
 <script src="../js/downgrade.js"></script>
+<!--checks if the user clicks on system-->
+<script>
+    const betraly = JSON.parse(localStorage.getItem("betraly")) || false;
+    document.getElementById("sys").addEventListener("click", () =>{
+        if(betraly){
+            alert("A Monster that wants to destroy more?\n" +
+                "Too bad, Im not letting you")
+        }
+        else{
+            alert("I'm sorry.\n" +
+                "I'm afraid I can't let you enter this page")
+        }
+    });
+</script>
 </body>
 </html>
