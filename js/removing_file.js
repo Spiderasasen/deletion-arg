@@ -123,6 +123,7 @@ let clickCount = 0;
 
 function resetSeason(){
     localStorage.removeItem('deleted_files');
+    localStorage.removeItem('betraly');
 
     document.querySelectorAll(".files").forEach(file => {
         const name = file.dataset.name;

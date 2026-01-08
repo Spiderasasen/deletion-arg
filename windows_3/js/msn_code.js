@@ -2,8 +2,10 @@ const input = document.getElementById("MSN");
 const container = document.getElementById("output");
 const now = new Date();
 let echo_count = 0;
-let betraly = false;
+let betraly = JSON.parse(localStorage.getItem("betraly")) || false;
 const nav_list = ["cd", "dir", "tree", "type", "copy", "move", "attrib", "ren", "set", "mem", "chkdsk", "edit", "debug", "xcopy", "backup", "restore"];
+
+console.log(betraly);
 
 // calling the text files
 function loadFile(path) {
@@ -48,12 +50,10 @@ input.addEventListener("keydown", function(e){
             echo = command.replace(/^echo\s+/, "");
         }
         else{
-            for (let i in nav_list){
-                console.log(nav_list[i]);
-                if (command === nav_list[i]){
-                    commands_help = "betraly2";
-                    betraly = true;
-                }
+            if (nav_list.includes(command)){
+                commands_help = "betraly2";
+                betraly = true;
+                localStorage.setItem("betraly", "true");
             }
         }
         console.log("New one", commands_help);
@@ -89,6 +89,7 @@ input.addEventListener("keydown", function(e){
                 }
                 else if (echo_count === 3){
                     betraly = true;
+                    localStorage.setItem("betraly", "true");
                     loadFile("../asset/files/lore/betrayal/notice2.txt").then(text => {
                         const lines = text.split("\n");
                         let index = 0;
@@ -116,6 +117,7 @@ input.addEventListener("keydown", function(e){
                 break;
             case "betraly2":
                 betraly = true;
+                localStorage.setItem("betraly", "true");
                 loadFile("../asset/files/lore/betrayal/notice.txt").then(text => {
                     const lines = text.split("\n");
                     let index = 0;
