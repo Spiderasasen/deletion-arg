@@ -80,3 +80,9 @@
     background-color: #000080;
     color: white;
 }
+/*selected files*/
+.files.selected{
+    background-color: #000080;
+    color: white;
+    border: 1px solid #000;
+}
