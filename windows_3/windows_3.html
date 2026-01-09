@@ -8,12 +8,12 @@
 <body>
     <div class="program-manager">
         <div class=title-bar>
-            <button class="min_button">-</button>
+            <button class="min_button" id="exit">-</button>
             <span class="title-text">Program Manger</span>
         </div>
         <div class="selection">
-            <button>File</button>
-            <button>Help</button>
+            <button id="file">File</button>
+            <button id="help">Help</button>
         </div>
         <div class="program-group">
             <div class="program-button" onclick="open_files('file_explore.html')">
@@ -28,5 +28,6 @@
     </div>
     <script src="js/opening_files.js"></script>
     <script src="../js/downgrade_redirect.js"></script>
+    <script src="js/main_file.js"></script>
 </body>
 </html>
