@@ -1,0 +1,43 @@
+body{
+    background-color: #57ffff;
+    font-family: 'MS Sans Serif', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.main_container{
+    width: 600px;
+    margin: 40px auto;
+    border: 2px solid #000;
+    background-color: #c0c0c0;
+    box-shadow: 2px 2px 0 #808080;
+}
+.title-bar{
+    background-color: #5757fe;
+    color: white;
+    padding:4px 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.side_bar{
+    background-color: #dcdcdc;
+    padding: 4px 8px;
+    border-bottom: 2px solid #808080;
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+}
+.file_holder{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.file{
+    padding: 2px 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.files.selected{
+    background-color: black;
+    color: white;
+}
