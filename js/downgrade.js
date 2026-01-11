@@ -43,4 +43,7 @@ function triggerDowngrade(){
         window.open("../windows_2.html", "_blank", "height=1800 width=2600");
         window.close();
     }
+    if(currentSystem === "windows_2"){
+        window.open("windows_1.html", "_blank", "height=1800 width=2600");
+    }
 }
